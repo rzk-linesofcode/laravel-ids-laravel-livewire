@@ -1,4 +1,5 @@
 <div>
+    <livewire:contact-create :contacts="$contacts"></livewire:contact-create>
     <table class="table">
         <thead class="table-dark">
             <tr>
