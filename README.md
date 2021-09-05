@@ -7,4 +7,6 @@
 <h3>Branches</h3>
 <ul>
     <li>Main - Latest Source Code</li>
+    <li>01-Intro-and-Project-Preparation</li>
+    <li>02-Create-Livewire-Component</li>
 </ul>
