@@ -1,22 +1,39 @@
 <div>
     <form wire:submit.prevent="store">
-      <div class="flex flex-row grid-cols-2">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-          <div class="grid grid-cols-1">
-            <input wire:model="name" type="text" name="" id="" class="form-control" placeholder="Name...">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <input wire:model="name" 
+              type="text" name="" 
+              id="" class="form-control 
+              @error('name')
+                is-invalid
+              @enderror" 
+              placeholder="Name...">
+            
+            @error('name')
+              <span class="invalid-feedback">
+                {{ $message }}
+              </span>
+            @enderror
           </div>
-          <div class="grid grid-cols-1">
-            <input wire:model="phone" type="text" name="" id="" class="form-control" placeholder="Phone...">
+          <div class="col">
+            <input wire:model="phone" 
+              type="text" name="" 
+              id="" class="form-control 
+              @error('phone')
+                is-invalid
+              @enderror" 
+              placeholder="Phone...">
+              
+              @error('phone')
+                <span class="invalid-feedback">
+                  {{ $message }}
+                </span>
+              @enderror
           </div>
         </div>
-      </div>
-
-      <div class="flex flex-row grid-cols-2">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mb-5 mx-7">
-          <div class="grid grid-cols-1">
-            <button type="submit" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Submit</button>
-          </div>
-        </div>
-      </div>
+        <button class="btn btn-sm btn-primary my-3" type="submit">Submit</button>
+      </div>    
     </form>
 </div>

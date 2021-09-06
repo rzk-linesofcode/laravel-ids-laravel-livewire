@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Contact;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ContactCreate extends Component
@@ -19,6 +18,12 @@ class ContactCreate extends Component
 
     public function store()
     {
+
+        $this->validate([
+            'name' => 'required|min:3',
+            'phone' => 'required|min:5|max:15'
+        ]);
+
         $contact = Contact::create([
             'name' => $this->name,
             'phone' => $this->phone,
