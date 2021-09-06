@@ -8,8 +8,11 @@ use Livewire\Component;
 class ContactIndex extends Component
 {
 
+    public $updateStatus = false;
+
     protected $listeners = [
-        'contactStored' => 'handleStored'
+        'contactStored' => 'handleStored',
+        'contactUpdated',
     ];
 
     public function render()
@@ -19,8 +22,21 @@ class ContactIndex extends Component
         ]);
     }
 
+    public function getContact($id)
+    {
+        $this->updateStatus = true;
+        $contact = Contact::find($id);
+        $this->emit('getContact', $contact);
+    }
+
     public function handleStored($contact)
     {
         session()->flash('message', 'Contact ' . $contact['name'] . ' was Stored.');
+    }
+
+    public function contactUpdated($name)
+    {
+        $this->updateStatus = false;
+        session()->flash('message', 'Contact ' . $name . ' was Stored.');
     }
 }
