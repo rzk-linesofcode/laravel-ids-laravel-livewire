@@ -21,5 +21,6 @@ class ContactIndex extends Component
 
     public function handleStored($contact)
     {
+        session()->flash('message', 'Contact ' . $contact['name'] . ' was Stored.');
     }
 }
