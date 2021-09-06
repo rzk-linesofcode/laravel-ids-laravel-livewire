@@ -1,33 +1,36 @@
 <div>
     <livewire:contact-create></livewire:contact-create>
     <hr>
-    <table class="table">
-        <thead class="table-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Phone</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            @php
-                $no =0;
-            @endphp
-            @foreach ($contacts as $contact)
-            @php
-                $no++;
-            @endphp
+    <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
+        <h1 class="text-3xl my-3 underline">Contacts</h1>
+        <table class="min-w-full">
+            <thead>
                 <tr>
-                    <th scope="row">{{ $no }}</th>
-                    <td>{{ $contact->name  }}</td>
-                    <td>{{ $contact->phone }}</td>
-                    <td>
-                        <button class="btn btn-sm btn-info text-white">Edit</button>
-                        <button class="btn btn-sm btn-danger text-white">Delete</button>
-                    </td>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">#</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Name</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">Phone</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider"></th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="bg-white">
+                @php
+                    $no =0;
+                @endphp
+                @foreach ($contacts as $contact)
+                @php
+                    $no++;
+                @endphp
+                    <tr>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ $no }}</th>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ $contact->name  }}</td>
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ $contact->phone }}</td>                       
+                        <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-500 text-sm leading-5">
+                            <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Edit</button>
+                            <button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete</button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>

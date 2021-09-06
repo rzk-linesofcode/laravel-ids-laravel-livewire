@@ -11,6 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{-- You're logged in! --}}
                     <livewire:contact-index></livewire:contact-index>
+                    {{-- <x-contact-index></x-contact-index> --}}
                 </div>
             </div>
         </div>
