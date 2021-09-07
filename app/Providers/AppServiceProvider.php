@@ -35,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        Blade::component('contact-index', ContactIndex::class);
+        // Blade::component('contact-index', ContactIndex::class);
     }
 }

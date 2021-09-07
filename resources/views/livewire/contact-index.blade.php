@@ -12,9 +12,18 @@
         <livewire:contact-create></livewire:contact-create>
     @endif
 
-
     <hr>
-    <h1 class="fs-3 mt-3">Contacts</h1>
+    <h1 class="fs-3 mt-3 mb-1">Contacts</h1>
+    <div class="row">
+        <div class="col-auto">
+            <select wire:model="paginate" class="form-select form-select-sm">
+                <option disabled selected>...</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -25,15 +34,9 @@
             </tr>
         </thead>
         <tbody>
-            @php
-                $no =0;
-            @endphp
-            @foreach ($contacts as $contact)
-                @php
-                    $no++;
-                @endphp
+            @foreach ($contacts as $key => $contact)
                 <tr>
-                    <th scope="row">{{ $no }}</th>
+                    <th scope="row">{{ $contacts->firstItem() + $key }}</th>
                     <td>{{ $contact->name  }}</td>
                     <td>{{ $contact->phone }}</td>
                     <td>
@@ -44,5 +47,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $contacts->Links() }}
+    {{ $contacts->links() }}
 </div>
