@@ -27,7 +27,7 @@ catatan : ada beberapa perbedaan coding sedikit dari yg di video</p>
     <li>Buat database MySQL</li>
     <li>Ubah db credentials di file .env</li>
     <li>php artisan migrate</li>
-    <li>php artisan server (bagi yang tidak mengguankan valet)</li>
+    <li>php artisan serve (bagi yang tidak menggunakan valet)</li>
     <li>http://127.0.0.1:8000/</li>
     <li>Lakukan registrasi dan login</li>
 </ul>
