@@ -28,19 +28,32 @@ class ContactUpdate extends Component
         $this->contactId = $contact['id'];
     }
 
-    public function store()
+    public function update()
     {
         $this->validate([
-            'contactId' => 'required',
             'name' => 'required|min:3',
             'phone' => 'required|min:5|max:15',
         ]);
 
-        Contact::where('id', $this->contactId)->update([
-            'name' => $this->name,
-            'phone' => $this->phone,
-        ]);
+        if ($this->contactId) {
+            $contact = Contact::find($this->contactId);
+            $contact->update([
+                'name' => $this->name,
+                'phone' => $this->phone,
+            ]);
+            $this->resetInput();
+            $this->emit('contactUpdated', $contact);
+        }
+    }
 
-        $this->emit('contactUpdated', $this->name);
+    public function cancel()
+    {
+        return redirect()->to('/dashboard');
+    }
+
+    public function resetInput()
+    {
+        $this->name = null;
+        $this->phone = null;
     }
 }

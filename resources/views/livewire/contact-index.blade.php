@@ -37,8 +37,8 @@
                     <td>{{ $contact->name  }}</td>
                     <td>{{ $contact->phone }}</td>
                     <td>
-                        <button wire:click="getContact({{ $contact->id }})" class="btn btn-primary">Edit</button>
-                        <button class="btn btn-primary">Delete</button>
+                        <button wire:click="getContact({{ $contact->id }})" class="btn btn-sm btn-primary">Edit</button>
+                        <button wire:click="destroy({{ $contact->id }})" class="btn btn-sm btn-danger btn-primary">Delete</button>
                     </td>
                 </tr>
             @endforeach

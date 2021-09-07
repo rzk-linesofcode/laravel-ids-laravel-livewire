@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="update">
       <input type="hidden" name="" wire:model="contactId">
       <div class="container">
         <div class="row">
@@ -34,7 +34,9 @@
               @enderror
           </div>
         </div>
-        <button class="btn btn-sm btn-primary my-3" type="submit">Submit</button>
+        <button class="btn btn-sm btn-primary my-3" type="submit">Update</button>
+        {{-- <button class="btn btn-sm btn-primary my-3"  type="button" onclick="window.location='{{ URL::previous() }}'">Cancel</button> --}}
+        <a class="btn btn-sm btn-primary my-3" href="{{ URL::previous() }}">Cancel</a>
       </div>    
     </form>
 </div>

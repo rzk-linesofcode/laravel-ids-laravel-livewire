@@ -12,7 +12,7 @@ class ContactIndex extends Component
 
     protected $listeners = [
         'contactStored' => 'handleStored',
-        'contactUpdated',
+        'contactUpdated' => 'handleUpdated',
     ];
 
     public function render()
@@ -29,14 +29,23 @@ class ContactIndex extends Component
         $this->emit('getContact', $contact);
     }
 
+    public function destroy($id)
+    {
+        if ($id) {
+            $data = Contact::find($id);
+            $data->delete();
+            session()->flash('message', 'Contact ' . $data->name . ' has been deleted succesfully.');
+        }
+    }
+
     public function handleStored($contact)
     {
         session()->flash('message', 'Contact ' . $contact['name'] . ' was Stored.');
     }
 
-    public function contactUpdated($name)
+    public function handleUpdated($contact)
     {
         $this->updateStatus = false;
-        session()->flash('message', 'Contact ' . $name . ' was Stored.');
+        session()->flash('message', 'Contact ' . $contact['name'] . ' Updated Successfully.');
     }
 }
