@@ -16,12 +16,16 @@
     <h1 class="fs-3 mt-3 mb-1">Contacts</h1>
     <div class="row">
         <div class="col-auto">
-            <select wire:model="paginate" class="form-select form-select-sm">
+            <select wire:model="paginate" class="form-select form-select-md">
                 <option disabled selected>...</option>
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
             </select>
+        </div>
+        <div class="col"></div>
+        <div class="col col-md-6">            
+            <input wire:model="search" type="text" class="form-control form-control-sm" placeholder="Search Name...">
         </div>
     </div>
     <table class="table">
